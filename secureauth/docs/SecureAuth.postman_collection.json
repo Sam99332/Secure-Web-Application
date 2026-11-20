@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "SecureAuth API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Complete Postman collection for SecureAuth Authentication, User Self-Service, and Admin RBAC endpoints."
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" }
+  ],
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Jordan Lee\",\n  \"email\": \"jordan@example.com\",\n  \"username\": \"jordan.lee\",\n  \"password\": \"Strong@Pass1!\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identifier\": \"admin@secureauth.dev\",\n  \"password\": \"{{DEV_ADMIN_PASSWORD}}\",\n  \"rememberMe\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Forgot Password",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/forgot-password",
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"jordan@example.com\"\n}" }
+      }
+    },
+    {
+      "name": "Auth - Reset Password",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/reset-password",
+        "body": { "mode": "raw", "raw": "{\n  \"token\": \"PASTE_TOKEN_HERE\",\n  \"newPassword\": \"NewStrong@Pass2!\"\n}" }
+      }
+    },
+    {
+      "name": "User - Get My Profile",
+      "request": { "method": "GET", "url": "{{baseUrl}}/users/me" }
+    },
+    {
+      "name": "User - Update My Profile",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/users/me",
+        "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Jordan K. Lee\",\n  \"email\": \"jordan@example.com\",\n  \"avatarUrl\": \"\"\n}" }
+      }
+    },
+    {
+      "name": "User - Change Password",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/users/me/password",
+        "body": { "mode": "raw", "raw": "{\n  \"currentPassword\": \"Strong@Pass1!\",\n  \"newPassword\": \"Rotated@Pass2!\"\n}" }
+      }
+    },
+    {
+      "name": "User - Login Activity",
+      "request": { "method": "GET", "url": "{{baseUrl}}/users/me/activity" }
+      },
+    {
+      "name": "Admin - Dashboard Overview",
+      "request": { "method": "GET", "url": "{{baseUrl}}/admin/dashboard" }
+    },
+    {
+      "name": "Admin - List Users (Filtered & Paginated)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/admin/users?search=&status=ACTIVE&page=0&size=10&sortBy=createdAt&sortDir=desc" }
+    },
+    {
+      "name": "Admin - Update User Status",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/admin/users/2/status",
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"INACTIVE\"\n}" }
+      }
+    },
+    {
+      "name": "Admin - Update User Roles",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/admin/users/2/roles",
+        "body": { "mode": "raw", "raw": "{\n  \"roles\": [\"ROLE_USER\", \"ROLE_ADMIN\"]\n}" }
+      }
+    },
+    {
+      "name": "Admin - Audit Logs",
+      "request": { "method": "GET", "url": "{{baseUrl}}/admin/audit-logs?page=0&size=20" }
+    },
+    {
+      "name": "Auth - Logout",
+      "request": { "method": "POST", "url": "{{baseUrl}}/auth/logout" }
+    }
+  ]
+}

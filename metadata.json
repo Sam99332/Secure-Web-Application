@@ -1,0 +1,6 @@
+{
+  "name": "SecureAuth",
+  "description": "Enterprise user management, RBAC, password hashing, JWT authentication, and audit logging platform with Android client and full-stack Spring Boot + React + MySQL monorepo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

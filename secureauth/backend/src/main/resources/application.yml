@@ -1,0 +1,45 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: secureauth-backend
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/secureauth?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-in-production-to-a-64-byte-base64-random-secret-key!}
+    expiration-ms: ${JWT_EXPIRATION_MS:3600000}
+    remember-me-expiration-ms: ${JWT_REMEMBER_EXPIRATION_MS:604800000}
+  cookie:
+    name: SECUREAUTH_ACCESS_TOKEN
+    secure: ${COOKIE_SECURE:false}
+    same-site: ${COOKIE_SAME_SITE:Lax}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000}
+  seed:
+    enabled: ${APP_SEED_DEV_USERS:false}
+    admin-email: ${SEED_ADMIN_EMAIL:admin@secureauth.dev}
+    admin-password: ${SEED_ADMIN_PASSWORD:}
+    user-email: ${SEED_USER_EMAIL:alex@secureauth.dev}
+    user-password: ${SEED_USER_PASSWORD:}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

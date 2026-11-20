@@ -1,0 +1,20 @@
+# Dependencies & Build Artifacts
+node_modules/
+dist/
+target/
+build/
+*.log
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.jks
+*.keystore
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

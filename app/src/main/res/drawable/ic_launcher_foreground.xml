@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Bold security shield centered inside 66dp safe zone (21..87) -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M54,23L31,32.5V51.5C31,66.2 40.8,79.8 54,84C67.2,79.8 77,66.2 77,51.5V32.5L54,23Z" />
+    <path
+        android:fillColor="#0B132B"
+        android:pathData="M54,29.5L36.5,36.8V51.5C36.5,63.2 44.1,73.9 54,77.6C63.9,73.9 71.5,63.2 71.5,51.5V36.8L54,29.5Z" />
+    <!-- Precision keyhole / lock core -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M54,43A6.5,6.5 0 1,0 54,56A6.5,6.5 0 1,0 54,43Z" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M50.5,53H57.5L59,66H49L50.5,53Z" />
+</vector>

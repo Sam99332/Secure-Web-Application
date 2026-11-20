@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:secureauth_test;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+
+app:
+  jwt:
+    secret: dGVzdC1zZWNyZXQta2V5LWZvci1qdW5pdC1pbnRlZ3JhdGlvbi10ZXN0cy0xMjM0NTY3ODkw
+    expiration-ms: 3600000
+    remember-me-expiration-ms: 604800000
+  cookie:
+    secure: false
+    same-site: Lax
+  seed:
+    enabled: false

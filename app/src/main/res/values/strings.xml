@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SecureAuth</string>
+    <string name="tagline_enterprise">Zero-Trust Identity &amp; Access Control</string>
+    <string name="nav_landing">Home</string>
+    <string name="nav_login">Sign In</string>
+    <string name="nav_register">Register</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_admin">Admin</string>
+    <string name="action_logout">Sign Out</string>
+    <string name="error_generic_login">Invalid credentials or account unavailable. Please verify your details and try again.</string>
+    <string name="msg_forgot_password_generic">If an account matches that email address, a secure time-limited reset token has been issued.</string>
+</resources>
